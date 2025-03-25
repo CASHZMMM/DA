@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>最傻逼的网站</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            transition: background-color 0.1s;
+        }
+        button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            padding: 10px;
+            border: none;
+            background: red;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>你好，智商检测启动中...</h1>
+    <button id="troll-btn">点我一下</button>
+    
+    <script>
+        // 让页面背景随机变色
+        setInterval(() => {
+            document.body.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+        }, 500);
+
+        // 让鼠标乱飘
+        document.addEventListener("mousemove", function(e) {
+            window.scrollBy(Math.random() * 50 - 25, Math.random() * 50 - 25);
+        });
+
+        // 让所有文字随机乱码
+        function scrambleText() {
+            document.body.innerHTML = document.body.innerHTML.replace(/[A-Za-z0-9]/g, () => 
+                String.fromCharCode(33 + Math.random() * 94)
+            );
+        }
+        setInterval(scrambleText, 2000);
+
+
+
+        // 让按钮疯狂移动
+        document.getElementById("troll-btn").addEventListener("mouseover", function() {
+            this.style.left = Math.random() * window.innerWidth + "px";
+            this.style.top = Math.random() * window.innerHeight + "px";
+        });
+
+        // 页面自动滚动，让人完全无法看清
+        setInterval(() => {
+            window.scrollTo(0, Math.random() * document.body.scrollHeight);
+        }, 1000);
+    </script>
+</body>
+</html>
